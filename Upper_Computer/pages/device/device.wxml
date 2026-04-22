@@ -1,0 +1,176 @@
+<!--pages/device.wxml-->
+<view class="device-container">
+    <view class="control-rev">
+        <text class="title-rev">数据接收 : </text>
+        <button class="bt-clear" type="primary" bindtap="btClearTap" hover-start-time="0">清空</button>
+        <checkbox-group bindchange="checkScroll" class="checkbox-scroll">
+            <checkbox checked="true"></checkbox>
+            <text>滚动</text>
+        </checkbox-group>
+        <checkbox-group bindchange="checkRevHex" class="checkbox-rev-hex">
+            <checkbox></checkbox>
+            <text>Hex</text>
+        </checkbox-group>
+    </view>
+    <view class="scroll-view-container">
+        <scroll-view class="scroll-view-rev" scroll-y="true" scroll-into-view="{{scrollIntoView}}">
+            <view class="view-rev-gap"></view>
+            <text class="text-rev" user-select="true" selectable="true">{{textRevData}}</text>
+            <view class="view-rev-gap"></view>
+            <view id="scroll-view-bottom"></view>
+            <view id="scroll-view-bottom2"></view>
+        </scroll-view>
+    </view>
+    <!-- <view class="control-send">
+        <text class="title-send">数据发送 : </text>
+        <checkbox-group bindchange="checkSendHex" class="checkbox-send-hex">
+            <checkbox></checkbox>
+            <text>Hex</text>
+        </checkbox-group>
+    </view>
+    <view class="view-input-send">
+        <textarea class="input-send" maxlength="-1" bindblur="inputSendData" bindinput="inputSendData" />
+    </view>
+    <view class="view-bt-send">
+        <button class="bt-send" type="primary" bindtap="btSendTap" hover-start-time="0">发送</button>
+    </view>
+    <view class="control-chinese">
+        <text class="title-chinese">中文字符集 : </text>
+        <radio-group bindchange="checkChinese" class="checkbox-chinese">
+            <radio value="utf8" />
+            <text class="checkbox-chinese-first-item">UTF-8</text>
+            <radio value="gbk" checked="true"/>
+            <text>GBK</text>
+        </radio-group>
+    </view>
+    <view><text class="text-support">技术支持：https://eciot.com</text></view> -->
+
+    <!-- 开启关闭校准按钮 -->
+    <view class="view-Switch-send">
+      <button class="bt-button" type="primary" bindtap="btSendSwitch1" hover-start-time="0">开启</button>
+      <button class="bt-button" type="primary" bindtap="btSendSwitch0" hover-start-time="0">关闭</button>
+    </view>
+    <view class="view-adjust-send">
+      <button class="bt-button" type="primary" bindtap="btSetTime" hover-start-time="0">一键校准时间</button>
+      <button class="bt-button" type="primary" bindtap="show_timeModal">自定义时间</button>
+    </view>
+
+   <!-- 用户自定义时间界面 -->
+    <view class="container">
+      <!-- <button bindtap="show_timeModal">自定义时间</button> --> 
+
+      <!-- 弹窗及遮罩层 -->
+      <view wx:if="{{show_timeModal}}" class="modal-overlay">
+        <view class="modal-content">
+          <view class="input-group">
+            <label>年：</label>
+            <input type="number" placeholder="输入年份" bindinput="inputYear" />
+          </view>
+          <view class="input-group">
+            <label>月：</label>
+            <input type="number" placeholder="输入月份" bindinput="inputMonth" />
+          </view>
+          <view class="input-group">
+            <label>日：</label>
+            <input type="number" placeholder="输入日期" bindinput="inputDay" />
+          </view>
+          <view class="input-group">
+            <label>时：</label>
+            <input type="number" placeholder="输入小时" bindinput="inputHour" />
+          </view>
+          <view class="input-group">
+            <label>分：</label>
+            <input type="number" placeholder="输入分钟" bindinput="inputMinute" />
+          </view>
+          <view class="input-group">
+            <label>秒：</label>
+            <input type="number" placeholder="输入秒数" bindinput="inputSecond" />
+          </view>
+          <view class="modal-buttons">
+            <button bindtap="cancel_timeModal">取消</button>
+            <button bindtap="btChangeTime">确定</button>
+          </view>
+        </view>
+      </view>
+    </view>
+
+     <!-- 设置亮度 -->
+    <view class="container_light">
+      <button class="bt-button"  bindtap="show_lightModal">设置亮度</button>
+      <button class="bt-button"  bindtap="openSettings">设置功能</button>
+       <!-- 设置无人检测时间按钮 -->
+      <button class="bt-button" bindtap="showunmannedModal">设置无人检测时间</button>
+
+       <!--模态对话框 -->
+      <view class="modal_light" wx:if="{{show_lightModal}}">
+        <view class="modal-content_light">
+          <text>调整亮度</text>
+          <slider min="0" max="100" step="1" value="50" bindchange="onSliderChange" show-value/>
+          <button bindtap="cancel_lightModal">退出</button>
+        </view>
+      </view>
+    </view> 
+
+    <!-- 设置功能/无人检测时间界面 -->
+    <view class="container_setting">
+      <!-- <button bindtap="openSettings">设置参数</button> -->
+    
+      <!-- 设置弹窗 -->
+      <view wx:if="{{showSettingsModal}}" class="modal_setting">
+        <view class="modal-content_setting">
+          <view class="modal-body_setting">
+            <view class="section_setting">
+              <text>人体检测</text>
+              <button style="background-color: rgb(0, 255, 0); color: white; width: 30%;" bindtap="enableBodyDetection">开启</button>
+              <button style="background-color: rgb(0, 255, 0); color: white; width: 30%;" bindtap="disableBodyDetection">关闭</button>
+            </view>
+            <view class="section_setting">
+              <text>防阴极中毒</text>
+              <button style="background-color: rgb(0, 255, 0); color: white; width: 30%;"  type="primary "bindtap="enableCathodeProtection">
+              开启</button>
+              <button style="background-color: rgb(0, 255, 0); color: white; width: 30%;"  type="primary "bindtap="disableCathodeProtection">关闭</button> 
+            </view>
+            <view class="section_setting">
+              <text>光照感应</text>
+              <button style="background-color: rgb(0, 255, 0); color: white; width: 30%;"  bindtap="enableLightSensing">开启</button>
+              <button style="background-color: rgb(0, 255, 0); color: white; width: 30%;"  bindtap="disableLightSensing">关闭</button>
+            </view>
+          </view>
+          <!-- 关闭弹窗 -->
+          <button bindtap="closeSettings">关闭</button>
+        </view>
+      </view>
+
+
+
+      <!-- 设置无人检测时间弹窗 -->
+      <view wx:if="{{showunmannedPopup}}" class="modal_setting">
+        <view class="modal-content_setting">
+          <view class="section_setting">
+            <text>无人检测时间</text>
+            <input type="number" placeholder="输入时间" value="{{unmannedTime}}" bindinput="handleunmannedTimeInput"/>
+          </view>
+          <view class="section_setting">
+            <text>最大静止门数量</text>
+            <input type="number" placeholder="输入数量" value="{{maxStaticGates}}" bindinput="handleMaxStaticGatesInput"/>
+          </view>
+          <view class="section_setting">
+            <text>最大运动门数量</text>
+            <input type="number" placeholder="输入数量" value="{{maxDynamicGates}}" bindinput="handleMaxDynamicGatesInput"/>
+          </view>
+          <view class="section_setting">
+            <button class="btn-confirm" bindtap="confirm_unmanned_time">确定</button>
+            <button class="btn-cancel" bindtap="closeunmannedModal">取消</button>
+          </view>
+        </view>
+      </view>
+    </view> 
+
+   
+
+
+
+
+
+</view>
+

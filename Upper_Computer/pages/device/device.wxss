@@ -1,0 +1,335 @@
+/* pages/device.wxss */
+.device-container {
+    height: 100vh;
+}
+.control-rev{
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+.title-rev {
+    font-size: 17px;
+    flex:1;
+}
+
+.bt-clear {
+    width: 55px !important;
+    height: 29px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-right: 15px !important;
+}
+
+.checkbox-scroll {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.checkbox-rev-hex {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.scroll-view-container {
+    margin: 0 20px;
+    padding: 0 3px 0 5px;
+    background-color: #F5F5F5;
+}
+
+.scroll-view-rev {
+    height: 250px;
+}
+
+.view-rev-gap{
+    height: 5px;
+}
+
+.text-rev {
+    font-size: 14px;
+    word-break: break-all;
+    font-family: Monospace;
+}
+
+.control-send{
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-top: 5px;
+}
+
+.title-send {
+    font-size: 17px;
+    flex:1;
+}
+
+.checkbox-send-hex {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.view-input-send {
+    margin: 0 20px;
+    padding: 2px 3px; 
+    background-color: #F5F5F5;
+}
+
+.input-send {
+    height: 84px;
+    width: 100%;
+    word-break: break-all;
+}
+
+.view-bt-send {
+    margin: 15px 20px 0px 20px;
+    display: flex;
+}
+
+.bt-send {
+    flex: 1;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-chinese{
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-top: 5px;
+}
+
+.title-chinese{
+    font-size: 17px;
+    flex:1;
+}
+
+.checkbox-chinese{
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+.checkbox-chinese-first-item{
+    margin-right: 10px;
+}
+
+.text-support{
+    font-size: 14px;
+    color: #909399;
+    margin-left: 20px;
+}
+
+/* 用户自定义控件 */
+.view-Switch-send {
+  position: absolute;
+  top: 620px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+}
+
+.view-adjust-send {
+  position: absolute;
+  top: 700px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+}
+/* 容器样式 */
+.container {
+  padding: 10px;
+}
+
+/* 输入组样式 */
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+
+/*****自定义时间输入*******/
+/* 容器样式 */
+.container {
+  padding: 10px;
+}
+
+/* 输入组样式 */
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+/* 标签样式 */
+label {
+  width: 40px; /* 调整标签宽度 */
+  text-align: right;
+  margin-right: 5px;
+}
+
+/* 输入框样式 */
+input {
+  flex: 1;
+  padding: 2px;
+  height: 25px;
+  box-sizing: border-box;
+}
+
+/* 按钮样式 */
+button {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+}
+
+/* 特定按钮的样式 */
+.btn-setting {
+  background-color: #4CAF50;  /* 绿色 */
+  color: white;
+  width: 50px;
+}
+
+/* 结果样式 */
+.result {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* 弹窗及遮罩层样式 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明遮罩层 */
+  z-index: 999; /* 确保在最上层 */
+  pointer-events: auto; /* 允许点击事件 */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  z-index: 1000; /* 确保内容在遮罩层之上 */
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/*****亮度调节*******/
+/* 容器样式 */
+.container_light {
+  position: absolute;
+  padding: 10px;
+  top: 420px;
+  left: 20px;
+  right: 20px;
+  /* display: flex;  */
+}
+
+/* 模态对话框样式 */
+.modal_light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content_light {
+  width: 80%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/*设置功能按钮*/
+.container_setting {
+  /* padding: 10px; */
+  position: absolute;
+  top: 540px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+}
+
+.modal_setting {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明遮罩层 */
+  z-index: 999; /* 确保在最上层 */
+  pointer-events: auto; /* 允许点击事件 */
+}
+
+.modal-content_setting {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  z-index: 1000; /* 确保内容在遮罩层之上 */
+}
+
+.modal-body_setting {
+  padding-top: 10px;
+}
+
+.section_setting {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.section_setting text {
+  flex: 1;
+}
+
+.section_setting switch {
+  flex: 2;
+}
+
+.modal-footer_setting {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-footer_setting button {
+  flex: 1;
+  margin: 0 10px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+/*设置无人检测时间按钮*/
+
+
